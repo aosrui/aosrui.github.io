@@ -112,6 +112,40 @@ The neural network aimed to predict precipitation (PRCP) is based on meteorologi
 
 <img width="689" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/5ac1a480-4baa-47e7-8aa6-cba5079ebd79">
 
+# Result
+
+3.1 temperaure group
+
+<img width="401" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/76b9caa2-a206-4d7c-98ec-cfc168763252">
+
+<img width="303" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/a7fbef4b-1cfc-4e76-b0c4-e364ade83b3f">
+
+<img width="325" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/4b97f566-c916-4b27-a946-edd5624a3bfb">
+
+<img width="337" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/b88d26c2-ba1f-46e0-a9bc-ffdda38f9076">
+
+
+3.2 precipitation group
+
+<img width="409" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/0d6c23cf-d67b-4477-a838-bddecdfd2bd9">
+
+<img width="317" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/e28785d1-b612-4a9c-aaa6-3515757e7a95">
+
+<img width="383" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/05026422-21df-4c84-af9c-b5dd3ba83e84">
+
+
+# Discussion
+
+# Conclusion
+
+# references
+
+
+
+
+
+
+
 
 
 

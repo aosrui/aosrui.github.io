@@ -50,9 +50,12 @@ tolerance levels.
   The date preprocessing process includes HANDING MISSING VALUES,REMOVING OUTLIERS,REMOVE ABNORMAL VALUES
 
 <img width="684" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/bc821668-29e8-4b63-b48e-c77b94b505b0">
+
   Missing values in the dataset can disrupt the training of machine learning models. Imputing missing values, in this case using the mean of the respective columns, ensures that the dataset remains complete. This is important for maintaining data integrity and preventing the loss of valuable information.
+  
 
 <img width="689" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/548387fc-d508-4d21-adf9-68d2b1538316">
+
   The dataset was subjected to outlier detection using Z-scores. Columns containing numeric data were standardized, and Z-scores were calculated. Records with absolute Z-scores exceeding a predefined threshold of 3 were considered outliers. Subsequently, these outliers were removed from the dataset using a boolean mask, resulting in the creation of "data_clean_no_outliers".
 
 ### 1.4 visualize the data 

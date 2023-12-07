@@ -96,6 +96,7 @@ The linear regression model and neural network model were applied to predict tem
 
 This code implements a linear regression model to predict temperature using features like Dew Point, Wind Gust, Wind Speed, and Maximum Wind Speed. It splits the data, trains the model, and evaluates its performance using Mean Squared Error and R-squared. The scatter plot visually compares actual and predicted temperatures based on Dew Point
 
+```python
     import pandas as pd
     from sklearn.model_selection import train_test_split
     from sklearn.linear_model import LinearRegression
@@ -133,11 +134,13 @@ This code implements a linear regression model to predict temperature using feat
     plt.title('Temperature Prediction Based on Dew Point ,GUST , WDSP, MXSPD')
     plt.legend()
     plt.show()
+```
 
 #### 2.1.2 neural network model
 
 This code employs a Multi-Layer Perceptron (MLP) neural network for temperature prediction using features like Dew Point, Wind Gust, Wind Speed, and Maximum Wind Speed. It splits the data into training and testing sets, standardizes the features, and builds the neural network with two hidden layers of 100 neurons each. The model is trained on the scaled training data and evaluated on the test set, measuring performance using Mean Squared Error and R-squared. The neural network aims to capture complex patterns and relationships within the meteorological variables for improved temperature prediction.
 
+```python
     from sklearn.neural_network import MLPRegressor
     from sklearn.metrics import mean_squared_error, r2_score
     from sklearn.model_selection import train_test_split
@@ -170,6 +173,7 @@ This code employs a Multi-Layer Perceptron (MLP) neural network for temperature 
 
     print(f'Mean Squared Error: {mse}')
     print(f'R-squared: {r2}')
+```
 
 ### 2.2 precipitation group
 
@@ -177,6 +181,7 @@ This code employs a Multi-Layer Perceptron (MLP) neural network for temperature 
 
 Similar to the building process of temperaure's linear regression model, we use the features like Dew Point, Temperature, Wind Speed, and Maximum Wind Speed to predict the precipitation.
 
+```python
     import pandas as pd
     from sklearn.model_selection import train_test_split
     from sklearn.linear_model import LinearRegression
@@ -214,14 +219,14 @@ Similar to the building process of temperaure's linear regression model, we use 
     plt.title('Actual vs Predicted Precipitation')
     plt.legend()
     plt.show()
-
-
+```
 
 #### 2.2.2 neural network model
 
 
 The neural network aimed to predict precipitation (PRCP) is based on meteorological variables (Wind Speed, Maximum Wind Speed, Temperature, Dew Point). The data is split into training and testing sets, and the input features are standardized. The MLPRegressor is configured with two hidden layers, each containing 85 neurons,which is the best preformance through the selection of various set of neurons. The model is trained, and predictions are made on the testing set. Mean Squared Error and R-squared are then calculated to evaluate the model's performance in predicting precipitation.
 
+ ```python
     from sklearn.neural_network import MLPRegressor
     from sklearn.model_selection import train_test_split
     from sklearn.preprocessing import StandardScaler
@@ -251,7 +256,7 @@ The neural network aimed to predict precipitation (PRCP) is based on meteorologi
     r2 = r2_score(y_test, y_pred)
     print("Mean Squared Error:", mse)
     print(f'R-squared: {r2}')
-
+```
 
 # Result
 

@@ -265,15 +265,16 @@ In Figure 1, the linear regression model for temperature was constructed with a 
 
 <img width="303" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/a7fbef4b-1cfc-4e76-b0c4-e364ade83b3f">
 
+FIGURE 2
+
 In Figure 2, the neural network model fitting results are illustrated. The model, characterized by a Mean Squared Error (MSE) of 23.6, outperforms the linear regression model in terms of accuracy. The lower MSE indicates a better fit of the neural network in predicting temperature. Additionally, the correlation between the tested and predicted data has increased to 0.89, highlighting the improved ability of the neural network model to capture the underlying patterns in the temperature data. This enhanced correlation further establishes the efficacy of the neural network in providing more accurate temperature predictions compared to the linear regression model.
 
 
 <img width="320" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/4c495e8c-104e-419a-ab4c-0d8477fbfe99">
 
-
-
 <img width="369" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/5158cd55-6c9f-4671-9fa9-7f3c1c32bbc9">
 
+FIGURE 3
 
 In Figure 3,The Relative Error Curve (REC) plot offers a comprehensive view of the MLPRegressor model's performance in predicting temperature. The X-axis represents the absolute error tolerance, delineating the acceptable range of disparities between predicted and actual temperatures. Meanwhile, the Y-axis illustrates the corresponding percentage of correct predictions within each absolute error tolerance. The curve itself portrays how the model's accuracy evolves across different levels of precision.
 
@@ -282,20 +283,20 @@ In Figure 3,The Relative Error Curve (REC) plot offers a comprehensive view of t
 
 <img width="409" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/0d6c23cf-d67b-4477-a838-bddecdfd2bd9">
 
-Figure 5
+FIGURE 5
 
 In Figure 5, the linear regression model for precipitation was constructed with a test data size of 0.2, resulting in a Mean Squared Error (MSE) around 0.0068. The model demonstrates high accuracy, as indicated by the low MSE. However, the model shows low correlationship as to the R-squared value, approximately 0.17, signifies a weak correlation between the predicted and observed values.
 
 <img width="317" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/e28785d1-b612-4a9c-aaa6-3515757e7a95">
 
-Figure 6
+FIGURE 6
 
 In Figure 6, the results of the neural network model fitting are presented, revealing a Mean Squared Error (MSE) of 0.0068. This performance surpasses that of the linear regression model, indicating heightened accuracy in predicting precipitation. Despite a weak correlation of 0.17 between the tested and predicted data, it represents an improvement over the linear regression model. 
 
 
 <img width="383" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/05026422-21df-4c84-af9c-b5dd3ba83e84">
 
-Figure 7
+FIGURE 7
 
 The REC curve plot in Figure 7 for the MLPRegressor model indicates a Root Mean Squared Error (RMSE) of 0.09. This metric reflects the overall accuracy of the model's temperature predictions. The lower the RMSE, the better the model's performance, suggesting that, on average, the predicted temperatures are close to the actual values. Therefore, an RMSE of 0.09 in the REC curve plot signifies a relatively accurate temperature prediction by the MLPRegressor model, as it falls within a reasonable margin of error.
 

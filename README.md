@@ -3,7 +3,7 @@
 and implement machine learning models, specifically linear regression and a neural 
 network, to predict weather conditions such as temperature and precipitation.
 
-# Introuction
+# Introduction
   The central focus of this project lies in training a neural network machine learning
 model and conducting a comparative analysis with a linear regression model. 
 The dataset used for this exploration comprises daily weather data, and the primary 

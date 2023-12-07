@@ -65,7 +65,7 @@ To specific the related variables of related targeted values - temperature and p
 This figure visualize the correlation coefficient of the preprocessing data,to select the potential related variables to simplify the model building.
 
 <img width="449" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/b56322d7-ed10-462e-b4f8-30862f22e52d">
-<h> hj <\h>
+
 
 Screening out featured varibables of temperature and precipitation.
 
@@ -74,12 +74,14 @@ Screening out featured varibables of temperature and precipitation.
 ##### 1.4.2.1 precipitation group
 
 <img width="753" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/1a6807a2-2ee3-40e6-8a1b-88371c64ec8e">
+  
   Choosing 'WDSP','MXSPD','DEWP','TEMP' as features served for the target - precipitation to visualzie the changing trend of these.
 
 
 ##### 1.4.2.2 temperature group
 
 <img width="758" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/16ae0dbc-2236-4d92-9717-3bdd9bce825b">
+  
   Choosing 'WDSP','MXSPD','GUST' after elminiating the abnormal data,'dEWP' as features served for the target - temperature to visualzie the changing trend of these.
 
 # Modeling 

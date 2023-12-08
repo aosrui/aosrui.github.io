@@ -43,6 +43,8 @@ tolerance levels.
   Since the original data possess a lot of irrelevant or redundant columns, such as station identifiers and location coordinates,these were removed to focus on essential weather features. Missing values in numeric columns were imputed with the mean of their respective columns to ensure a complete dataset.
 
 <img width="670" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/15a1ec9d-fa3a-47b0-bd62-048b8a587330"> 
+
+Figure 1
       
 
 ### 1.3 preprocess data
@@ -51,10 +53,14 @@ tolerance levels.
 
 <img width="684" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/bc821668-29e8-4b63-b48e-c77b94b505b0">
 
+Figure 2
+
   Missing values in the dataset can disrupt the training of machine learning models. Imputing missing values, in this case using the mean of the respective columns, ensures that the dataset remains complete. This is important for maintaining data integrity and preventing the loss of valuable information.
   
 
 <img width="689" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/548387fc-d508-4d21-adf9-68d2b1538316">
+
+Figure 3
 
   The dataset was subjected to outlier detection using Z-scores. Columns containing numeric data were standardized, and Z-scores were calculated. Records with absolute Z-scores exceeding a predefined threshold of 3 were considered outliers. Subsequently, these outliers were removed from the dataset using a boolean mask, resulting in the creation of "data_clean_no_outliers".
 
@@ -63,29 +69,39 @@ tolerance levels.
 #### 1.4.1 select features
 
 To specific the related variables of related targeted values - temperature and precipitation.First we calculated the coefficient between different variables, selecting the potential related ones for future model building. 
+
 <img width="604" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/3ad75040-0c46-4723-9f98-77b35ad28795">
 
-This figure visualize the correlation coefficient of the preprocessing data,to select the potential related variables to simplify the model building.
+Figure 4
+
+Figure 4 provides a visual representation of the correlation coefficients within the preprocessed data, aiding in the identification and selection of potential variables with significant relationships for the purpose of streamlining the model construction process.
 
 <img width="449" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/b56322d7-ed10-462e-b4f8-30862f22e52d">
 
+Figure 5
 
-Screening out featured varibables of temperature and precipitation.
+Screening out featured variables of temperature and precipitation. Interpreting the correlation patterns within the meteorological variables reveals insightful relationships with both temperature and precipitation. Regarding temperature, there are notably strong positive correlations, approaching 1, between temperature (TEMP) and other temperature-related variables such as Dew Point (DEWP), Maximum Temperature (MAX), and Minimum Temperature (MIN). This implies a nearly linear relationship, indicating that increases in these variables correspond to proportional increases in temperature. Additionally, Wind Gust (GUST) displays a moderate positive correlation with temperature, suggesting that higher wind gusts may be associated with slightly higher temperatures. Interestingly, there is a weak positive correlation between temperature and precipitation (PRCP), indicating that higher temperatures are subtly linked to increased precipitation. As for precipitation, it exhibits a perfect positive correlation with itself, as expected. There are weak positive correlations between precipitation and various factors, including temperature, Dew Point (DEWP), Wind Speed (WDSP), Maximum Wind Speed (MXSPD), Minimum Temperature (MIN), and the weather indicator (FRSHTT). These correlations suggest subtle associations, emphasizing the intricate relationships between meteorological variables and precipitation patterns. The weak positive correlations between temperature and precipitation underscore the nuanced interplay between these factors, reinforcing the complex nature of weather phenomena.
+
 
 #### 1.4.2 visualize two groups of variables
 
 ##### 1.4.2.1 precipitation group
 
 <img width="753" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/1a6807a2-2ee3-40e6-8a1b-88371c64ec8e">
+
+Figure 6
   
-  Choosing 'WDSP','MXSPD','DEWP','TEMP' as features served for the target - precipitation to visualzie the changing trend of these.
+ The selection of 'WDSP' (Wind Speed), 'MXSPD' (Maximum Wind Speed), 'DEWP' (Dew Point), and 'TEMP' (Temperature) as features for precipitation prediction provides a comprehensive visualization of the changing trends in these meteorological variables. Despite the expected seasonal fluctuations in temperature and dew point, the overall patterns in the target variable (precipitation) and selected features exhibit synchronized oscillations. This synchronization is evident in the similar peak times and general trends observed across all variables. The interrelated patterns suggest a potential influence of wind speed, maximum wind speed, dew point, and temperature on precipitation. The oscillatory behavior aligns with meteorological expectations, where certain weather conditions may coincide and contribute to precipitation events. This synchronization in peak times and patterns enhances the understanding of the interconnected dynamics among these variables, highlighting their role in influencing precipitation trends. The visualization underscores the importance of considering multiple meteorological factors when predicting precipitation, as their synchronized patterns contribute to the complex and dynamic nature of weather phenomena.
 
 
 ##### 1.4.2.2 temperature group
 
 <img width="758" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/16ae0dbc-2236-4d92-9717-3bdd9bce825b">
-  
-  Choosing 'WDSP','MXSPD','GUST' after elminiating the abnormal data,'dEWP' as features served for the target - temperature to visualzie the changing trend of these.
+
+Figure 7
+
+The selection of 'WDSP' (Wind Speed), 'MXSPD' (Maximum Wind Speed), 'GUST' (Wind Gust), and 'DEWP' (Dew Point) as features for temperature prediction offers a detailed visualization of their changing trends. After eliminating abnormal data, the inclusion of wind-related variables alongside dew point temperature provides valuable insights. Notably, dew point temperature exhibits a strong correlation with the target variable, temperature. The synchronized patterns and oscillations observed in these variables indicate a significant relationship with temperature fluctuations. The variables associated with wind speed, including 'WDSP,' 'MXSPD,' and 'GUST,' demonstrate a notable degree of oscillation that closely follows the general trend of temperature. This synchronous behavior suggests a correlation between wind-related factors and temperature variations. The oscillatory patterns further emphasize the interplay between these meteorological variables in influencing temperature. Overall, the visualization underscores the importance of considering both dew point temperature and wind-related factors when predicting temperature, as they exhibit coherent patterns that contribute to the dynamic nature of temperature fluctuations.
+
 
 # Modeling 
 The linear regression model and neural network model were applied to predict temperature and precipitation based on various weather features.
@@ -264,46 +280,47 @@ The neural network aimed to predict precipitation (PRCP) is based on meteorologi
 
 <img width="401" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/76b9caa2-a206-4d7c-98ec-cfc168763252">
 
-FIGURE 1
+FIGURE 8
 
-In Figure 1, the linear regression model for temperature was constructed with a test data size of 0.2, resulting in a Mean Squared Error (MSE) around 24.8. The model demonstrates high accuracy, as indicated by the low MSE. Additionally, the R-squared value, approximately 0.89, signifies a strong correlation between the predicted and observed values. This high coefficient suggests that the linear regression model effectively captures and explains the variance in the temperature data. The robust performance of the model enhances its reliability in forecasting temperature based on the selected features.
+In Figure 8, the linear regression model for temperature was constructed with a test data size of 0.2, resulting in a Mean Squared Error (MSE) around 24.8. The model demonstrates high accuracy, as indicated by the low MSE. Additionally, the R-squared value, approximately 0.89, signifies a strong correlation between the predicted and observed values. This high coefficient suggests that the linear regression model effectively captures and explains the variance in the temperature data. The robust performance of the model enhances its reliability in forecasting temperature based on the selected features.
 
 <img width="303" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/a7fbef4b-1cfc-4e76-b0c4-e364ade83b3f">
 
-FIGURE 2
+FIGURE 9
 
-In Figure 2, the neural network model fitting results are illustrated. The model, characterized by a Mean Squared Error (MSE) of 23.6, outperforms the linear regression model in terms of accuracy. The lower MSE indicates a better fit of the neural network in predicting temperature. Additionally, the correlation between the tested and predicted data has increased to 0.89, highlighting the improved ability of the neural network model to capture the underlying patterns in the temperature data. This enhanced correlation further establishes the efficacy of the neural network in providing more accurate temperature predictions compared to the linear regression model.
+In Figure 9, the neural network model fitting results are illustrated. The model, characterized by a Mean Squared Error (MSE) of 23.6, outperforms the linear regression model in terms of accuracy. The lower MSE indicates a better fit of the neural network in predicting temperature. Additionally, the correlation between the tested and predicted data has increased to 0.89, highlighting the improved ability of the neural network model to capture the underlying patterns in the temperature data. This enhanced correlation further establishes the efficacy of the neural network in providing more accurate temperature predictions compared to the linear regression model.
 
 
 <img width="320" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/4c495e8c-104e-419a-ab4c-0d8477fbfe99">
 
 <img width="369" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/5158cd55-6c9f-4671-9fa9-7f3c1c32bbc9">
 
-FIGURE 3
+FIGURE 10
 
-In Figure 3,The Relative Error Curve (REC) plot offers a comprehensive view of the MLPRegressor model's performance in predicting temperature. The X-axis represents the absolute error tolerance, delineating the acceptable range of disparities between predicted and actual temperatures. Meanwhile, the Y-axis illustrates the corresponding percentage of correct predictions within each absolute error tolerance. The curve itself portrays how the model's accuracy evolves across different levels of precision.
+In Figure 10,The Relative Error Curve (REC) plot offers a comprehensive view of the MLPRegressor model's performance in predicting temperature. The X-axis represents the absolute error tolerance, delineating the acceptable range of disparities between predicted and actual temperatures. Meanwhile, the Y-axis illustrates the corresponding percentage of correct predictions within each absolute error tolerance. The curve itself portrays how the model's accuracy evolves across different levels of precision.
 
 
 ### 3.2 precipitation group
 
 <img width="409" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/0d6c23cf-d67b-4477-a838-bddecdfd2bd9">
 
-FIGURE 5
+FIGURE 11
 
-In Figure 5, the linear regression model for precipitation was constructed with a test data size of 0.2, resulting in a Mean Squared Error (MSE) around 0.0068. The model demonstrates high accuracy, as indicated by the low MSE. However, the model shows low correlationship as to the R-squared value, approximately 0.17, signifies a weak correlation between the predicted and observed values.
+In Figure 11, the linear regression model applied to precipitation prediction is characterized by a test data size of 0.2, yielding a notable Mean Squared Error (MSE) of approximately 0.0068. The discerned low MSE underscored the model's proficiency in generating accurate precipitation predictions, indicative of minimal discrepancies between predicted and observed values. However, a critical scrutiny of the R-squared value, approximately 0.17, uncovered a discernibly weak correlation between the predicted and observed values. This R-squared value signifies the model's limited capability to elucidate the underlying patterns or trends inherent in the precipitation data. Despite the model's precision in point predictions, the observed weak correlation alludes to inherent constraints in its capacity to comprehensively explicate the variance characterizing precipitation based on the selected features. The incongruity between the low MSE and weak correlation emphasizes the imperative of employing diverse evaluation metrics to holistically assess model performance. This incongruence further signals the necessity for a nuanced exploration of potential model refinements to address the inherent challenges associated with capturing the intricate and multifaceted nature of precipitation patterns within the linear regression framework.
 
 <img width="317" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/e28785d1-b612-4a9c-aaa6-3515757e7a95">
 
-FIGURE 6
+FIGURE 12
 
-In Figure 6, the results of the neural network model fitting are presented, revealing a Mean Squared Error (MSE) of 0.0068. This performance surpasses that of the linear regression model, indicating heightened accuracy in predicting precipitation. Despite a weak correlation of 0.17 between the tested and predicted data, it represents an improvement over the linear regression model. 
+In Figure 12, the outcomes of the neural network model fitting for precipitation prediction are illustrated, unveiling a Mean Squared Error (MSE) of 0.0068. This achievement surpasses the performance of the linear regression model, underscoring an elevated level of accuracy in forecasting precipitation. Despite the manifestation of a modest correlation of 0.17 between the tested and predicted data, this value denotes an improvement compared to the linear regression model. The emphasis on the enhanced accuracy achieved by the neural network, despite the persistence of a relatively weak correlation, suggests the model's proficiency in capturing complex patterns or relationships inherent in the precipitation data. This nuanced improvement implies that the neural network, with its capacity to discern non-linear dependencies, exhibits superior adaptability to the intricate nature of precipitation patterns compared to the linear regression counterpart. The observed performance nuances underscore the importance of considering multiple evaluation metrics and emphasize the need for continual refinement and exploration of advanced modeling approaches to enhance the predictive capabilities of precipitation forecasting models.
+
 
 
 <img width="383" alt="image" src="https://github.com/aosrui/aosrui.github.io/assets/152749873/05026422-21df-4c84-af9c-b5dd3ba83e84">
 
-FIGURE 7
+FIGURE 13
 
-The REC curve plot in Figure 7 for the MLPRegressor model indicates a Root Mean Squared Error (RMSE) of 0.09. This metric reflects the overall accuracy of the model's temperature predictions. The lower the RMSE, the better the model's performance, suggesting that, on average, the predicted temperatures are close to the actual values. Therefore, an RMSE of 0.09 in the REC curve plot signifies a relatively accurate temperature prediction by the MLPRegressor model, as it falls within a reasonable margin of error.
+The REC curve plot in Figure 13 for the MLPRegressor model indicates a Root Mean Squared Error (RMSE) of 0.09. This metric reflects the overall accuracy of the model's temperature predictions. The lower the RMSE, the better the model's performance, suggesting that, on average, the predicted temperatures are close to the actual values. Therefore, an RMSE of 0.09 in the REC curve plot signifies a relatively accurate temperature prediction by the MLPRegressor model, as it falls within a reasonable margin of error.
 
 
 # Discussion
@@ -311,15 +328,15 @@ The REC curve plot in Figure 7 for the MLPRegressor model indicates a Root Mean 
 ### 4.1 comparsion of linear regression model and neural network model
 
 
-The comparison between the linear regression and neural network models reveals distinct advantages and trade-offs in the context of temperature and precipitation prediction. In the temperature prediction task, the linear regression model demonstrates strong accuracy with a low Mean Squared Error (MSE) of 24.8 in Figure 1. The robust fitting degree, as indicated by the high R-squared value of 0.89, signifies a substantial correlation between the predicted and observed values. This initial success positions linear regression as a reliable baseline model.
+The comparison between the linear regression and neural network models reveals distinct advantages and trade-offs in the context of temperature and precipitation prediction. In the temperature prediction task, the linear regression model demonstrates strong accuracy with a low Mean Squared Error (MSE) of 24.8 in Figure 8. The robust fitting degree, as indicated by the high R-squared value of 0.89, signifies a substantial correlation between the predicted and observed values. This initial success positions linear regression as a reliable baseline model.
 
-However, Figure 2 introduces the neural network model, which outperforms linear regression in terms of accuracy. With a lower MSE of 23.6 and an increased correlation of 0.89, the neural network excels in capturing intricate temperature patterns. The neural network's ability to learn non-linear relationships and adapt to complex data structures contributes to its superior performance.
+However, Figure 9 introduces the neural network model, which outperforms linear regression in terms of accuracy. With a lower MSE of 23.6 and an increased correlation of 0.89, the neural network excels in capturing intricate temperature patterns. The neural network's ability to learn non-linear relationships and adapt to complex data structures contributes to its superior performance.
 
-Figure 3, showcasing the Relative Error Curve (REC) plot, provides additional insights into the neural network model's adaptability across different levels of error tolerance. This plot further highlights the model's versatility and its capacity to maintain accuracy under varying precision requirements.
+Figure 10, showcasing the Relative Error Curve (REC) plot, provides additional insights into the neural network model's adaptability across different levels of error tolerance. This plot further highlights the model's versatility and its capacity to maintain accuracy under varying precision requirements.
 
-In the context of precipitation prediction (Figure 5 and Figure 6), both linear regression and the neural network exhibit high accuracy with low MSE values (0.0068). However, the weak correlationship (R-squared value of 0.17) in both models indicates challenges in capturing the underlying patterns in precipitation data. The neural network, while maintaining a weak correlation, showcases an improvement over linear regression.
+In the context of precipitation prediction (Figure 12 and Figure 13), both linear regression and the neural network exhibit high accuracy with low MSE values (0.0068). However, the weak correlationship (R-squared value of 0.17) in both models indicates challenges in capturing the underlying patterns in precipitation data. The neural network, while maintaining a weak correlation, showcases an improvement over linear regression.
 
-Figure 7 introduces the REC curve plot for the MLPRegressor model, revealing a Root Mean Squared Error (RMSE) of 0.09. This metric provides a nuanced understanding of the model's overall accuracy in predicting temperature. The lower RMSE suggests that, on average, the predicted temperatures closely align with the actual values.
+Figure 13 introduces the REC curve plot for the MLPRegressor model, revealing a Root Mean Squared Error (RMSE) of 0.09. This metric provides a nuanced understanding of the model's overall accuracy in predicting temperature. The lower RMSE suggests that, on average, the predicted temperatures closely align with the actual values.
 
 In conclusion, the neural network model demonstrates superior performance over linear regression in both temperature and precipitation prediction tasks. Its capacity to capture non-linear relationships and adapt to complex data structures makes it a promising choice for meteorological predictions, offering enhanced accuracy and adaptability in diverse forecasting scenarios.
 
@@ -330,7 +347,7 @@ The relatively low correlation between the test data and predicted data in the c
 
 Moreover, precipitation data often exhibit high variability and dependence on localized factors, introducing spatial and temporal complexities. Linear regression models assume a linear relationship between the input features and the target variable, which may oversimplify the intricate dynamics of precipitation patterns. Neural networks, with their capacity to model non-linear relationships and adapt to complex structures, offer an improvement over linear regression in capturing the nuanced interactions that influence precipitation.
 
-In Figure 5 and Figure 6, both linear regression and neural network models exhibit low correlations (R-squared values of approximately 0.17) with the test data. This suggests that the selected features, such as dew point, wind speed, and gust, might not sufficiently encapsulate the multifaceted nature of precipitation. The inherent variability and unpredictability of precipitation events make it challenging for any model, including neural networks, to achieve a high correlation with the observed values.
+In Figure 11 and Figure 12, both linear regression and neural network models exhibit low correlations (R-squared values of approximately 0.17) with the test data. This suggests that the selected features, such as dew point, wind speed, and gust, might not sufficiently encapsulate the multifaceted nature of precipitation. The inherent variability and unpredictability of precipitation events make it challenging for any model, including neural networks, to achieve a high correlation with the observed values.
 
 Additionally, the low correlation may also be indicative of the inherent stochastic nature of precipitation, where short-term variations and local conditions play a significant role. Linear regression and neural networks may struggle to discern these subtle variations without comprehensive and diverse datasets that encompass a wide range of meteorological conditions.
 
